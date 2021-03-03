@@ -48,18 +48,18 @@ class InstaFollower:
             "/html/body/div[2]/div/div/div/div[2]/button[1]"
         ).click()
 
-        # Input Username and Password
+        # Input Username and Password and Log In
         self.find_element(
             '//*[@id="loginForm"]/div/div[1]/div/label/input'
         ).send_keys(
             USERNAME + Keys.TAB +
-            PASSWORD
+            PASSWORD + Keys.ENTER
         )
 
-        # Log In
-        self.find_element(
-            '//*[@id="loginForm"]/div/div[3]/button'
-        ).click()
+        # # Log In
+        # self.find_element(
+        #     '//*[@id="loginForm"]/div/div[3]/button'
+        # ).click()
 
         # Don't save passwords
         self.find_element(
