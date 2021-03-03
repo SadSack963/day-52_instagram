@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from selenium import webdriver, common
 from selenium.webdriver.common.keys import Keys
 from time import sleep
-import math
+import random
 
 chrome_driver_path = "E:/Python/WebDriver/chromedriver.exe"
 firefox_driver_path = "E:/Python/WebDriver/geckodriver.exe"
@@ -109,7 +109,12 @@ class InstaFollower:
             sleep(2)  # Allow the list to update
 
     def follow(self):
-        pass
+        # all_buttons = self.driver.find_elements_by_css_selector("li button")  # Angela's find by CSS Selector
+        list_buttons = self.driver.find_elements_by_xpath('/html/body/div[5]/div/div/div[2]/ul//button')
+        for button in list_buttons:
+            if button.text == "Follow":
+                button.click()
+                sleep(random.randint(1, 4))
 
 
 insta_follower = InstaFollower(browser="Chrome")
